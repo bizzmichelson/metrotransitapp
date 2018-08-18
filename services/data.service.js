@@ -31,11 +31,11 @@ myApp.service('dataService', [
     };
 
     // ds.postTrip = function (TripObject) {
-    //     console.log(HighLowObject);
+    //     console.log(TripObject);
     //     $http({
     //         method: 'POST',
-    //         url: '/api/basics',
-    //         data: HighLowObject
+    //         url: 'http://svc.metrotransit.org/NexTrip/{ROUTE}/{DIRECTION}/{STOP}'
+    //         data: TripObject
     //     }).then(function (response) {
     //         console.log('server response')
     //         console.log($location.path())
