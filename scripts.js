@@ -64,13 +64,4 @@ request.onload = function() {
 
 request.send();
 
-$(document).ready(function() {
-    $.ajax({
-      type: "GET",
-      url: "data/allstations.json",
-      dataType: "json",
-      success: function(file) {
-        main(file);
-      }
-    });
-  });
+
