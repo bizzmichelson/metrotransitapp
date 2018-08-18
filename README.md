@@ -1,9 +1,9 @@
 From http://svc.metrotransit.org/
 HTTP Requests:
 GET: 
-[] Routes
-[] Stops
-[] Directions
+- [ ] Routes
+- [ ] Stops
+- [ ] Directions
 
 POST: 
 Object (TripObject) containing ROUTE/DIRECTION/STOP
