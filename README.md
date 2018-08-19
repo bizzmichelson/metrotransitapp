@@ -41,6 +41,6 @@ Steps:
 Questions/Sticking Points:
 - [ ] Do I need config?
 - [ ] How do I get all directions?
-- [ ] Do I need to make dropdowns contingent upon each other?
+- [ ] Do I need to make dropdowns contingent upon each other? If so, should I have separate views?
 - [ ] How do I create the post object? Use the values from get objects?
 - [ ] Would it be better to create dropdown manually than get the data from the API?
