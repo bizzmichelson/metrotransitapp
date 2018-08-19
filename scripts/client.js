@@ -1,11 +1,11 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+// var myApp = angular.module('myApp', ['ngRoute']);
 
 // myApp.config(function ($routeProvider) {
-
-//     $routeProvider.when('/', {
-//         templateUrl: 'views/home.html',
-//         controller: 'HomeController as hc'
-//     }).otherwise({
-//         redirectTo: '/'
-//     });
+//   $routeProvider
+// }).when('/basics', {
+//   templateUrl: '{STOPS}',
+//   controller: 'StopsController as sc'
+//     .otherwise({
+//       redirectTo: '/'
+//     })
 // });

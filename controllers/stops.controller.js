@@ -1,8 +1,15 @@
-myApp.controller('StopsController', function($http, dataService) {
+myApp.controller('StopsController', function(dataService) {
   var vm = this;
+  var Stops = [];
 
-  vm.clicky = function() {
-    dataService.postStops(vm.input);
-  };
-  console.log('in StopsController controller');
+  console.log(dataService);
+
+  console.log('in stops controller');
+
+  dataService.getStops().then(function(response) {
+    console.log(response.data);
+    // console.log("res.Obj", resObj);
+    vm.Stops = response.data;
+    // return vm.resObj;
+  });
 });

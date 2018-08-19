@@ -12,9 +12,10 @@
   <link href="style.css" rel="stylesheet">
   <script src="vendors/angular.js" charset="utf-8"></script>
   <script src="vendors/angular-route.js" charset="utf-8"></script>
+  <script src="services/data.service.js"></script>
   <script src="controllers/stops.controller.js"></script>
   <script src="scripts/client.js" charset="utf-8"></script>
-  <script src="services/data.service.js"></script>
+
 </head>
 
 <body>
@@ -22,7 +23,7 @@
   <body ng-app="myApp">
 
     <main ng-view></main>
-
+    <div ng-repeat="Stops in sc.Stops" class="col-md-4">
 
   </body>
 
