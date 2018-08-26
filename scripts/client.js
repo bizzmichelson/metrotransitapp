@@ -18,7 +18,6 @@ myApp.config(function($routeProvider) {
 
 
 
-
-myApp.controller('HomeController', function() {
-  console.log('hello');
-});
+// myApp.controller('HomeController', function() {
+//   console.log('hello');
+// });
