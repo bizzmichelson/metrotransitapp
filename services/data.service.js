@@ -16,6 +16,9 @@ myApp.service('dataService', function($http, $location) {
   ds.Directions = {
     data: []
   };
+  ds.Departures = {
+    data: []
+  };
 
   ds.getRoutes = function() {
     console.log();

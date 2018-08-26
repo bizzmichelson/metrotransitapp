@@ -24,16 +24,11 @@
 <body>
 
   <body ng-app="myApp">
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+
     <main ng-view></main>
-    <div ng-repeat="Stop in sc.Stops.data" class="col-md-4">
+
+
   </body>
-  componentDidMount() {
-    axios("https://svc.metrotransit.org/NexTrip/Routes").then(response => {
-      console.log(response);
-    });
-  }
-  <div id="root"></div>
 </body>
 
 </html>
