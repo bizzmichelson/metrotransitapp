@@ -2,11 +2,23 @@ var myApp = angular.module('myApp', ['ngRoute']);
 
 myApp.config(function($routeProvider) {
   $routeProvider
-    .when('http://svc.metrotransit.org/NexTrip/Stops/21/3?format=json', {
-      templateUrl: '{STOPS}',
-      controller: 'StopsController as sc'
+    .when('/', {
+      templateUrl: 'views/home.html',
+      controller: 'HomeController',
+      controllerAs: 'hc'
+    })
+    .when('/route/:route', {
+      templateUrl: 'views/routes.html',
+      controller: 'RoutesController as rc'
     })
     .otherwise({
       redirectTo: '/'
     });
+});
+
+
+
+
+myApp.controller('HomeController', function() {
+  console.log('hello');
 });

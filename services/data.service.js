@@ -1,71 +1,69 @@
-var myApp = angular.module('myApp', []);
-
-//do I need to define this again?
-
 myApp.service('dataService', function($http, $location) {
   console.log('dataService Loaded');
 
   var ds = this;
 
-  ds.Stops = {
-    data: []
-  };
-  ds.Routes = {
-    data: []
-  };
-  ds.Directions = {
-    data: []
-  };
-  ds.Departures = {
-    data: []
-  };
+  // ds.Stops = {
+  //   data: []
+  // };
+  // ds.Routes = {
+  //   data: []
+  // };
+  // ds.Directions = {
+  //   data: []
+  // };
+  // ds.Departures = {
+  //   data: []
+  // };
 
   ds.getRoutes = function() {
     console.log();
     return $http({
       method: 'GET',
-      url: 'https://svc.metrotransit.org/NexTrip/Routes?format=json'
-    }).then(function(res) {
-      ds.Routes.data = res.data;
-      return ds.Routes.data;
+      url:
+        'http://svc.metrotransit.org/NexTrip/Routes/' + route + '?format=json'
     });
   };
 
-  ds.getDirections = function() {
+  ds.getDirections = function(route) {
     console.log();
     return $http({
       method: 'GET',
-      url: 'https://svc.metrotransit.org/NexTrip/Directions/{ROUTE}?format=json'
-    }).then(function(res) {
-      ds.Directions.data = res.data;
-      return ds.Directions.data;
+      url:
+        'http://svc.metrotransit.org/NexTrip/Directions/' +
+        route +
+        '?format=json'
     });
   };
+  //   }).then(function(res) {
+  //     ds.Directions.data = res.data;
+  //     return ds.Directions.data;
+  //   });
+  // };
 
   ds.getStops = function() {
     console.log();
     return $http({
       method: 'GET',
       url:
-        'https://svc.metrotransit.org/NexTrip/Stops/{ROUTE}/{DIRECTION}?format=json'
+        'https://svc.metrotransit.org/NexTrip/Stops/{Routes}/{Directions}?format=json'
     }).then(function(res) {
       ds.Stops.data = res.data;
       return ds.Stops.data;
     });
   };
+
+  ds.getDepartures = function() {
+    console.log();
+    return $http({
+      method: 'GET',
+      url: 'https://svc.metrotransit.org/NexTrip/{STOPID}?format=json'
+    }).then(function(res) {
+      ds.Departures.data = res.data;
+      return ds.Departures.data;
+    });
+  };
 });
-
-ds.getDepartures = function() {
-  console.log();
-  return $http({
-    method: 'GET',
-    url: 'https://svc.metrotransit.org/NexTrip/{STOPID}?format=json'
-  }).then(function(res) {
-    ds.Departures.data = res.data;
-    return ds.Departures.data;
-  });
-};
-
 // ds.postTrip = function (TripObject) {
 //     console.log(TripObject);
 //     $http({
