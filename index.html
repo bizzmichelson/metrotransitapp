@@ -13,7 +13,10 @@
   <script src="vendors/angular.js" charset="utf-8"></script>
   <script src="vendors/angular-route.js" charset="utf-8"></script>
   <script src="services/data.service.js"></script>
+  <script src="controllers/departures.controller.js"></script>
   <script src="controllers/stops.controller.js"></script>
+  <script src="controllers/routes.controller.js"></script>
+  <script src="controllers/directions.controller.js"></script>
   <script src="scripts/client.js" charset="utf-8"></script>
 
 </head>
@@ -21,11 +24,15 @@
 <body>
 
   <body ng-app="myApp">
-
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <main ng-view></main>
-    <div ng-repeat="Text in sc.Stops" class="col-md-4">
+    <div ng-repeat="Stop in sc.Stops.data" class="col-md-4">
   </body>
-
+  componentDidMount() {
+    axios("https://svc.metrotransit.org/NexTrip/Routes").then(response => {
+      console.log(response);
+    });
+  }
   <div id="root"></div>
 </body>
 

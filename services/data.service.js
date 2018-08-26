@@ -21,7 +21,7 @@ myApp.service('dataService', function($http, $location) {
     console.log();
     return $http({
       method: 'GET',
-      url: 'http://svc.metrotransit.org/NexTrip/Routes?format=json'
+      url: 'https://svc.metrotransit.org/NexTrip/Routes?format=json'
     }).then(function(res) {
       ds.Routes.data = res.data;
       return ds.Routes.data;
@@ -32,7 +32,7 @@ myApp.service('dataService', function($http, $location) {
     console.log();
     return $http({
       method: 'GET',
-      url: 'http://svc.metrotransit.org/NexTrip/Directions/5?format=json'
+      url: 'https://svc.metrotransit.org/NexTrip/Directions/{ROUTE}?format=json'
     }).then(function(res) {
       ds.Directions.data = res.data;
       return ds.Directions.data;
@@ -43,13 +43,25 @@ myApp.service('dataService', function($http, $location) {
     console.log();
     return $http({
       method: 'GET',
-      url: 'http://svc.metrotransit.org/NexTrip/Stops/21/3?format=json'
+      url:
+        'https://svc.metrotransit.org/NexTrip/Stops/{ROUTE}/{DIRECTION}?format=json'
     }).then(function(res) {
       ds.Stops.data = res.data;
       return ds.Stops.data;
     });
   };
 });
+
+ds.getDepartures = function() {
+  console.log();
+  return $http({
+    method: 'GET',
+    url: 'https://svc.metrotransit.org/NexTrip/{STOPID}?format=json'
+  }).then(function(res) {
+    ds.Departures.data = res.data;
+    return ds.Departures.data;
+  });
+};
 
 // ds.postTrip = function (TripObject) {
 //     console.log(TripObject);
