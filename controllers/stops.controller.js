@@ -7,7 +7,6 @@ myApp.controller('StopsController', [
     sc.route = $routeParams.route;
 
     dataService.getStops($routeParams).then(function(response) {
-      console.log(response.data);
       sc.stops = response.data;
     });
   }

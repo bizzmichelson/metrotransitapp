@@ -23,7 +23,3 @@ myApp.config(function($routeProvider) {
       redirectTo: '/'
     });
 });
-
-// myApp.controller('HomeController', function() {
-//   console.log('hello');
-// });
