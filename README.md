@@ -12,3 +12,5 @@ $ nextbus.py “METRO Blue Line” “Target Field Station Platform 1” “sout
 8 Minutes
 
 
+Runs on port 5000
+
