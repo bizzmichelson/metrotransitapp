@@ -7,16 +7,22 @@ myApp.config(function($routeProvider) {
       controller: 'HomeController',
       controllerAs: 'hc'
     })
-    .when('/route/:route', {
-      templateUrl: 'views/routes.html',
-      controller: 'RoutesController as rc'
+    .when('/directions/:route', {
+      templateUrl: 'views/directions.html',
+      controller: 'DirectionsController as dc'
+    })
+    .when('/stops/:route/:direction', {
+      templateUrl: 'views/stops.html',
+      controller: 'StopsController as sc'
+    })
+    .when('/departures/:route/:direction/:stop', {
+      templateUrl: 'views/departures.html',
+      controller: 'DeparturesController as tc'
     })
     .otherwise({
       redirectTo: '/'
     });
 });
-
-
 
 // myApp.controller('HomeController', function() {
 //   console.log('hello');

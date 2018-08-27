@@ -1,16 +1,14 @@
 myApp.controller('StopsController', [
-    '$routeParams',
-    'dataService',
-    function StopsController($routeParam, dataService) {
-      console.log('in home controller');
-  
-      var vm = this;
-      var resObj;
-  
-      console.log(dataService);
-  
-      dataService.getDepartures().then(function(response) {
-        return vm.resObj;
-      });
-    }
-  ]);
+  '$routeParams',
+  'dataService',
+  function StopsController($routeParams, dataService) {
+    var sc = this;
+    sc.direction = $routeParams.direction;
+    sc.route = $routeParams.route;
+
+    dataService.getStops($routeParams).then(function(response) {
+      console.log(response.data);
+      sc.stops = response.data;
+    });
+  }
+]);

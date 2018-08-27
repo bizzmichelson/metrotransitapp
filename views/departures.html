@@ -1,0 +1,3 @@
+<div ng-repeat="departure in tc.departures">{{departure.Description}} <span ng-show="departure.Actual===true"> Real-Time Departure</span><span ng-show="departure.Actual===false">Scheduled Time</span>:
+    {{departure.DepartureText}}
+</div>

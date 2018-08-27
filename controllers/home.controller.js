@@ -1,16 +1,9 @@
 myApp.controller('HomeController', [
-  '$routeParams',
   'dataService',
-  function HomeController($routeParam, dataService) {
-    console.log('in home controller');
-
-    var vm = this;
-    var resObj;
-
-    console.log(dataService);
-
+  function HomeController(dataService) {
+    var hc = this;
     dataService.getRoutes().then(function(response) {
-      return vm.resObj;
+      return (hc.routes = response.data);
     });
   }
 ]);

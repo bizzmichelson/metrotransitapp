@@ -1,1 +1,2 @@
-<a class="btn btn-success" href="#!/stops"></a>
+<div ng-repeat="stop in sc.stops"><a href="#!/departures/{{sc.route}}/{{sc.direction}}/{{stop.Value}}">{{stop.Text}}</a>
+</div>

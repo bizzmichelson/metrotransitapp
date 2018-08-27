@@ -1,56 +1,63 @@
 myApp.service('dataService', [
   '$http',
-  '$location',
-  function($http, $location) {
+  function($http) {
     console.log('data.service works');
     var ds = this;
-    var route = $routeParam;
 
     ds.getRoutes = function() {
+      return $http({
+        method: 'GET',
+        url: 'http://svc.metrotransit.org/NexTrip/Routes?format=json'
+      });
+    };
+
+    ds.getDirections = function(route) {
       console.log();
       return $http({
         method: 'GET',
         url:
-          'http://svc.metrotransit.org/NexTrip/Routes/' + route + '?format=json'
+          'http://svc.metrotransit.org/NexTrip/Directions/' +
+          route +
+          '?format=json'
       });
     };
 
-    //   ds.getDirections = function (route) {
-    //     console.log();
-    //     return $http({
-    //       method: 'GET',
-    //       url: 'http://svc.metrotransit.org/NexTrip/Directions/' +
-    //         route +
-    //         '?format=json'
-    //     });
-    //   };
-    //   //   }).then(function(res) {
-    //   //     ds.Directions.data = res.data;
-    //   //     return ds.Directions.data;
-    //   //   });
-    //   // };
+    ds.getStops = function(params) {
+      console.log();
+      return $http({
+        method: 'GET',
+        url:
+          'https://svc.metrotransit.org/NexTrip/Stops/' +
+          params.route +
+          '/' +
+          params.direction +
+          '?format=json'
+      });
+    };
 
-    //   ds.getStops = function () {
-    //     console.log();
-    //     return $http({
-    //       method: 'GET',
-    //       url: 'https://svc.metrotransit.org/NexTrip/Stops/{Routes}/{Directions}?format=json'
-    //     }).then(function (res) {
-    //       ds.Stops.data = res.data;
-    //       return ds.Stops.data;
-    //     });
-    //   };
+    ds.getDepartures = function(params) {
+      console.log();
+      return $http({
+        method: 'GET',
+        url:
+          'https://svc.metrotransit.org/NexTrip/' +
+          params.route +
+          '/' +
+          params.direction +
+          '/' +
+          params.stop +
+          '?format=json'
+      });
+    };
 
-    //   ds.getDepartures = function () {
-    //     console.log();
-    //     return $http({
-    //       method: 'GET',
-    //       url: 'https://svc.metrotransit.org/NexTrip/{STOPID}?format=json'
-    //     }).then(function (res) {
-    //       ds.Departures.data = res.data;
-    //       return ds.Departures.data;
-    //     });
-    //   };
+    //     ds.getDepartures = function (params) {
+    //       console.log();
+    //       return $http({
+    //         method: 'GET',
+    //         url: 'https://svc.metrotransit.org/NexTrip/?format=json' +
+    //       }).then(function (res) {
+
+    //     };
   }
 ]);
 // });
