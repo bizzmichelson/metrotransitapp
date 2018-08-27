@@ -1,3 +1,6 @@
+'$scope','$routeParams'
+
+
 myApp.controller('DirectionsController', [
     '$routeParams',
     'dataService',
